@@ -2,7 +2,7 @@
 
 This application allows to manage private post offices and also is an e-commerce app, built from scratch. It is build using Laravel, MySQL, Bootstrap 4, SASS and JS.
 
-In following lines you will see examples how application looks when ran.
+Please read below to find more details.
 
 ## Home Page
 As you can see from home page there are availabe multiple links, like Track Order, Login, Register etc, and also there's an image slider 
