@@ -28,7 +28,7 @@ There's also an option to track order. This option allows buyers to track their 
 ![](/ApplicationScreenshots/3.png)
 
 
-## Search With Algolia
+## Search With [Algolia](https://www.algolia.com/users/sign_up)
 All products can be searched from search bar, using Algolia plugin (this option may not directly work, because Algolia offers only 14-days free trial. You may sign up for free trial in [Algolia](https://www.algolia.com/users/sign_up), and then make sure to configure env file properly)
 
 ![](/ApplicationScreenshots/4.png)
