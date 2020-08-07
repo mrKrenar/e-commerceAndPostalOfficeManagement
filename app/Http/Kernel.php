@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CartMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'seller' => \App\Http\Middleware\Seller::class,
         'postal_worker' => \App\Http\Middleware\PostalWorker::class,
         'buyer' => \App\Http\Middleware\Buyer::class,
+        'cart' => \App\Http\Middleware\CartMiddleware::class,
     ];
 }

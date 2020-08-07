@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@import 'variables';
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(/images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar{
+    background-color: black;
+    height: 45px;
+    margin-bottom: 10px;
+
+    
+
+    .logo{
+        float: left;
+
+            img {
+                margin-left: 10px;
+                margin-top: 6px;
+                height: 30px;
+            }
+    }
+
+    ul{
+        margin-top: 11px;
+        float: right;
+    }
+
+    li{
+        list-style: none;
+        display: inline-block;
+        padding: 0 20px;
+
+            a{
+                color: white;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: $secondary-color;
+            }
+    }
+
+}
+
+.container {
+    max-width: 1100px;
+    padding: 0 30px;
+    margin: 0 auto;
+    overflow: auto; 
+    user-select: none;
+}
+
+.card {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    background-color: white;
+    padding: 4px;
+
+    .card-header{
+        font-family: $styled-font;
+        font-size: 3rem;
+        color: $primary-color;
+        text-align: center;
+
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+
+
+    .card-body {
+         form{
+
+                input{
+                    width: 90%;
+                    padding: .5rem;
+                    margin: 20px 0px;
+                    border: none;
+                    font-size: 1.3rem;
+                    border-bottom: 1px solid #999;
+                    background: transparent;
+                    outline: none;
+                    color: $primary-color;
+
+                    &:focus {
+                        border-color: $primary-color;
+                         i {
+                             color: $primary-color;
+                         }
+                    }
+
+                }
+                
+                i{
+                    color: #999;
+                }      
+                
+                i:hover {
+                    color: $primary-color;
+                }
+
+                #password{
+                    margin-left: 4px;
+                }
+                .form-check{
+                    .form-check-input{
+                        width: 20px;
+                    }
+                    .form-check-label{
+                        color: $primary-color;
+                        font-size: 15px;
+                    }
+                    .btn-link{
+                        text-decoration: none;
+                        color: $primary-color;
+                        font-size: 15px;
+                    }
+                    .btn-link:hover{
+                        color: $secondary-color;
+                    }
+                    
+                }
+
+                
+         }
+
+         button {
+            padding: 1rem 3rem;
+            margin-left: 65px;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            
+            &:hover {
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+         }
+
+    
+    }
+}

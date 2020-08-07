@@ -30,6 +30,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_name');
             $table->string('description')->nullable();
             $table->float('price');
+            $table->integer('tvsh');
             $table->float('total_price');
             $table->string('status');
             $table->foreignId('seller_id')->constrained('users', 'id');

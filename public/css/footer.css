@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,600i,700,700i,800,800i");
+@import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i");
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,600i,700,700i,800,800i);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i);
+footer a {
+    color: #1f1f1f;
+    text-decoration: none !important;
+    outline: 0 !important;
+}
+
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+    letter-spacing: 0;
+    font-weight: 400;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-weight: 400;
+    line-height: 120% !important;
+    color: #1f1f1f;
+    margin: 0;
+}
+
+footer h1 {
+    font-size: 24px;
+}
+
+footer h2 {
+    font-size: 22px;
+}
+
+footer h3 {
+    font-size: 18px;
+}
+
+footer h4 {
+    font-size: 16px;
+}
+
+footer h5 {
+    font-size: 14px;
+}
+
+footer h6 {
+    font-size: 13px;
+}
+
+footer h1 a,
+footer h2 a,
+footer h3 a,
+footer h4 a,
+footer h5 a,
+footer h6 a {
+    color: #212121;
+    text-decoration: none !important;
+    opacity: 1;
+}
+
+footer h1 a:hover,
+footer h2 a:hover,
+footer h3 a:hover,
+footer h4 a:hover,
+footer h5 a:hover,
+footer h6 a:hover {
+    opacity: .8;
+}
+
+footer a {
+    color: #1f1f1f;
+    text-decoration: none;
+    outline: 0;
+}
+
+footer a {
+    text-decoration: none !important;
+    outline: 0 !important;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+footer li,
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer :focus {
+    outline: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .our-link {
+    float: right;
+}
+
+footer .our-link ul li {
+    display: inline-block;
+    border-right: 1px solid #fff;
+    padding: 0 10px;
+    line-height: 14px;
+}
+
+footer .our-link ul {
+    line-height: 30px;
+}
+
+footer .our-link ul li a {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+footer .our-link ul li a:hover {
+    color: #d33b33;
+}
+
+footer .our-link ul li:last-child {
+    border: none;
+}
+
+footer .footer-main {
+    margin-top: 25px;
+    padding: 70px 0;
+    background: #14213d;
+}
+
+footer .footer-widget h4 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+footer .footer-widget h4::before {
+    border-bottom: 3px solid #d33b33;
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+}
+
+footer .footer-widget p {
+    color: #ccc;
+    font-weight: 400;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+footer .footer-widget ul {
+    display: inline-block;
+}
+
+footer .footer-widget ul li {
+    float: left;
+    margin-right: 5px;
+}
+
+footer .footer-widget ul li a {
+    color: #fff;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #fff;
+    text-align: center;
+    line-height: 32px;
+}
+
+footer .footer-widget ul li a:hover {
+    color: #d33b33;
+    border-color: #d33b33;
+}
+
+footer .footer-link h4 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+footer .footer-link h4::before {
+    border-bottom: 3px solid #d33b33;
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+}
+
+footer .footer-link ul li {
+    margin-right: 5px;
+}
+
+footer .footer-link ul li a {
+    color: #fff;
+    text-align: left;
+    display: block;
+    line-height: 32px;
+    position: relative;
+    padding-left: 15px;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+}
+
+footer .footer-link ul li i {
+    position: absolute;
+    color: #ccc;
+    line-height: 30px;
+    font-size: 16px;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+}
+
+footer .footer-link ul li a:hover::before {
+    left: 5px;
+}
+
+footer .footer-link ul li a:hover {
+    color: #d33b33;
+    border-color: #d33b33;
+    padding-left: 20px;
+}
+
+footer .footer-link-contact h4 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+footer .footer-link-contact h4::before {
+    border-bottom: 3px solid #d33b33;
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+}
+
+footer .footer-link-contact ul li {
+    margin-bottom: 12px;
+}
+
+footer .footer-link-contact ul li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    padding-right: 6px;
+}
+
+footer .footer-link-contact ul li p {
+    padding-left: 25px;
+    color: #ccc;
+    position: relative;
+}
+
+footer .footer-link-contact ul li p {
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 300;
+    padding-right: 16px;
+    line-height: 24px;
+}
+
+footer .footer-link-contact ul li p a {
+    color: #ccc;
+}
+
+footer .footer-link-contact ul li p a:hover {
+    color: #d33b33;
+}
+
+.footer-copyright {
+    background: #0a142b;
+    /* padding: 20px 0px; */
+    padding-top: 15px;
+    padding-bottom: 1px;
+    position: relative;
+}
+
+.footer-copyright p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.footer-copyright p a {
+    color: #ffffff;
+}
+
+.footer-copyright p a:hover {
+    color: #d33b33;
+}

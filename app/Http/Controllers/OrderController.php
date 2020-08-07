@@ -64,6 +64,7 @@ class OrderController extends Controller
                 'order_name' => 'required|max:255',
                 'description' => 'nullable|max:255',
                 'price' => 'required|numeric|gte:0',
+                'tvsh' => 'required|numeric|gte:0|lte:100'
             ]
         );
 
@@ -86,7 +87,7 @@ class OrderController extends Controller
             'receiver_name' => $request['receiver_name'],
             'receiver_tel' => $request['receiver_tel'],
             'receiver_tel2' => $request['receiver_tel2'],
-            'state' => $request['state'], //if shteti !=xk or al or mk !insert
+            'state' => $request['state'],
             'city' => $request['city'],
             'address' => $request['address'],
             'quantity' => $request['quantity'],
@@ -96,6 +97,7 @@ class OrderController extends Controller
             'order_name' => $request['order_name'],
             'description' => $request['description'],
             'price' => $request['price'],
+            'tvsh' => $request['tvsh'],
             'status' => 'Processing',
             'seller_id' => Auth::user()->id,
             'total_price' => (float) $request['price'] * (int) $request['quantity'] + PostalSetting::find(1)->transfer_fee
@@ -115,28 +117,6 @@ class OrderController extends Controller
         return redirect(route('admin.newOrders'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
     public function editPostalWorker($id)
     {
         $order = Order::find($id);
@@ -152,29 +132,6 @@ class OrderController extends Controller
         $order->status = 'Delivering';
         $order->update();
         return redirect(route('admin.allOrders'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
     }
 
     public function downloadReport(Order $id)

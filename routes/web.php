@@ -1,12 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BuyerController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PostalWorkerController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SellerController;
-use App\Http\Middleware\PostalWorker;
+use App\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -21,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'ProductController@index')->name('dashboard');
+Route::get('/categories/{id}', 'ProductController@showCategories')->name('categories');
+
 Route::get('/product-details/{id}', 'ProductController@productDetails')->name('product-details');
 Route::post('/track', 'ProductController@trackOrder')->name('order.track');
 Route::get('/track', 'ProductController@trackView')->name('order.track.view');
@@ -30,6 +27,11 @@ Route::get('register/buyer', 'Auth\RegisterController@showBuyerRegistrationForm'
 Route::post('register/buyer', 'Auth\RegisterController@registerBuyer');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/searchproducts', 'ProductController@search')->name('searchProducts');
+Route::get('/account_disabled', function () {
+    return view('account_disabled');
+})->name('account_disabled');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin');
@@ -65,8 +67,11 @@ Route::group(['middleware' => ['seller']], function () {
     Route::get('/report/{id}', 'OrderController@downloadReport')->name('report');
     Route::get('/newProduct', 'ProductController@create')->name('newProduct');
     Route::post('/newProduct', 'ProductController@store')->name('addProduct');
+    Route::get('/allProducts', 'ProductController@allProducts')->name('allProducts');
+    Route::get('/editProduct/{product}', 'ProductController@editProduct')->name('editProduct');
+    Route::patch('/editProduct', 'ProductController@updateProduct')->name('updateProduct');
+    Route::patch('/archiveProduct/{product}', 'ProductController@archiveProduct')->name('archiveProduct');
 });
-
 
 Route::group(['middleware' => ['postal_worker']], function () {
     Route::get('/postalworker', 'PostalWorkerController@index')->name('postalworker');
@@ -79,10 +84,11 @@ Route::group(['middleware' => ['buyer']], function () {
     Route::get('/cart', 'BuyerController@loadCart')->name('cart');
     Route::post('/cart/{id}', 'BuyerController@addToCart')->name('cart');
     Route::delete('/product/{id}', 'ProductController@destroy')->name('product.destroy');
-    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('cart');
     Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
-    //Route::get('/checkoutProduct/{id}', 'CheckoutController@show')->name('checkout.index');
     Route::get('/thankyou', 'CheckoutController@thankyou')->name('thankyou');
+    Route::post('/cartUpdate/{cartId}', 'BuyerController@updateCart')->name('cart.update');
+    Route::get('/purchaseHistory/buyer/{buyer}/', 'BuyerController@purchaseHistory')->name('purchaseHistory');
 });
 
 // Route::get('productDetails/{id}', 'ProductController@showProductDetails')->name('productDetails');

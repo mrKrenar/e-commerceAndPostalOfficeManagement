@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@import 'variables';
+
+.card-header{
+    background-color: white;
+    border: none;
+    font-family: $styled-font;
+    font-size: 3rem;
+    color: $primary-color;
+}
+
+.custom-container {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    height: fit-content;
+
+    h4 {
+        font-family: $styled-font;
+        font-size: 2rem;
+        color: $primary-color;
+
+        .badge {
+            font-family: $body-font;
+            font-size: 1rem;
+            background-color: $primary-color;
+        }
+
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+
+    h3 {
+        font-family: $body-font;
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin: 20px;
+    }
+
+    ul {
+        font-family: $body-font;
+        li {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+
+            .product-details{
+                flex-basis: 65%;
+
+                h6{
+                    font-size: 0.9rem;
+                    line-height: 1.2;
+                    margin-block-start: 2.33em;
+                    margin-block-end: 2.33em;
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                }
+                small{
+                    font-size: 90%;
+                    font-weight: 400;
+                }
+
+            }
+
+            .price {
+                color: $primary-color-light;
+
+            }
+        }
+    }
+
+    .custom-form {
+        font-family: $body-font;
+        font-size: 1rem;
+
+        .mb-3 {
+            padding: 10px 0px;
+        }
+
+        label {
+            font-family: $body-font;
+            color: $primary-color;
+        }
+
+        //span {
+        //    color: red;
+        //}
+
+        input, select, textarea {
+            border: none;
+            font-size: 1rem;
+            border-bottom: 1px solid #999;
+            background: transparent;
+            outline: none;
+            color: $primary-color;
+
+            &:focus {
+                border-bottom: 2px solid $primary-color;
+                box-shadow: none;
+                outline: 0 none;
+                color: $primary-color;
+            }
+        }
+
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                width: 60%;
+                margin-top: 30px;
+                background-color: $primary-color;
+                border: none;
+                color: white;
+                padding: 16px 32px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 1em;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border-radius: 50px;
+
+                &:hover {
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                }
+            }
+        }
+
+    }
+}
+
+//i{
+//    color: #999;
+//
+//     &:hover {
+//         color: $primary-color;
+//     }
+//}
+
+
+
+//.custom-shadow{
+//    box-shadow: 0 1px 4px rgba(0,0,0,0.12),
+//    0 2px 8px rgba(0,0,0,0.12),
+//    0 4px 16px rgba(0,0,0,0.12),
+//    0 8px 32px rgba(0,0,0,0.12),
+//    0 16px 64px rgba(0,0,0,0.12);
+//}

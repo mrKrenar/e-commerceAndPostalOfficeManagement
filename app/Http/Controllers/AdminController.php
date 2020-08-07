@@ -87,72 +87,6 @@ class AdminController extends Controller
         return view('admin.view_delivered_orders', compact('order', 'users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function generateContract(User $id)
     {
         $data = ['name' => $id->name, 'last_name' => $id->last_name, 'state' => $id->state, 'city' => $id->city];
@@ -182,7 +116,7 @@ class AdminController extends Controller
         if (count($users) > 0) {
             return view('admin/all_clients')->with('clients', $users);
         } else {
-            return view('admin/all_clients')->with('clients', User::where('role_id', 3));
+            return view('admin/all_clients')->with('clients', User::where('role_id', 3)->paginate(5))->with('error', 'No results found for ' . $request['query'] . '. We\'re showing all users instead.');
         }
     }
 }

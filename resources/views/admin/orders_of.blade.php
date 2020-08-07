@@ -14,7 +14,7 @@
                         @endif
 
                         @if (count($orders) <= 0)
-                            <h3>No orders yet. Add one to see results</h3>
+                            <h3>No orders yet. Wait for any than try again</h3>
                         @else
                             <div class="card table-responsive">
                                 <table class="table">

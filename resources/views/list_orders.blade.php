@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <div class="row justify-content-center table-responsive">
             <div class="col-md-16">
                 <div class="card text">
@@ -14,7 +14,7 @@
                             @endif
 
                             @if (count($orders) <= 0)
-                                <h3>No orders yet. Add one to see results</h3>
+                                <h3>No orders yet. Wait for any than try again</h3>
                             @else
                                 <div class="card table-responsive">
                                     <table class="table">
@@ -35,7 +35,7 @@
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Total Price</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col">Download</th>
+                                                <th scope="col">Download Invoice</th>
                                             </tr>
                                         </thead>
                                         <tbody>

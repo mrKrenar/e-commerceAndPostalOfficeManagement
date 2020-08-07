@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "algolia/scout-extended": "^1.9",
         "barryvdh/laravel-dompdf": "^0.8.6",
         "cartalyst/stripe-laravel": "^12.0",
         "fideloper/proxy": "^4.2",

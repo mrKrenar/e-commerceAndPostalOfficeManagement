@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Pacifico&display=swap);* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(/images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: black;
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+.navbar .logo {
+  float: left;
+}
+
+.navbar .logo img {
+  margin-left: 10px;
+  margin-top: 6px;
+  height: 30px;
+}
+
+.navbar ul {
+  margin-top: 11px;
+  float: right;
+}
+
+.navbar li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  color: #fad02c;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+  overflow: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.card {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: white;
+  padding: 4px;
+}
+
+.card .card-header {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  color: #14213d;
+  text-align: center;
+}
+
+.card .card-header:hover {
+  color: #fad02c;
+}
+
+.card .card-body form input {
+  width: 90%;
+  padding: 0.5rem;
+  margin: 20px 0px;
+  border: none;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  outline: none;
+  color: #14213d;
+}
+
+.card .card-body form input:focus {
+  border-color: #14213d;
+}
+
+.card .card-body form input:focus i {
+  color: #14213d;
+}
+
+.card .card-body form i {
+  color: #999;
+}
+
+.card .card-body form i:hover {
+  color: #14213d;
+}
+
+.card .card-body form #password {
+  margin-left: 4px;
+}
+
+.card .card-body form .form-check .form-check-input {
+  width: 20px;
+}
+
+.card .card-body form .form-check .form-check-label {
+  color: #14213d;
+  font-size: 15px;
+}
+
+.card .card-body form .form-check .btn-link {
+  text-decoration: none;
+  color: #14213d;
+  font-size: 15px;
+}
+
+.card .card-body form .form-check .btn-link:hover {
+  color: #fad02c;
+}
+
+.card .card-body button {
+  padding: 1rem 3rem;
+  margin-left: 65px;
+  background-color: #14213d;
+  border: none;
+  border-radius: 50px;
+  color: white;
+}
+
+.card .card-body button:hover {
+  color: #14213d;
+  background-color: #fad02c;
+}
+

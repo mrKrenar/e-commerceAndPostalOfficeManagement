@@ -22,6 +22,7 @@ class Order extends Model
         'order_name',
         'description',
         'price',
+        'tvsh',
         'status',
         'seller_id',
         'total_price'

@@ -80,7 +80,7 @@
                                             <form  class="input-group" action="{{route('changeOrderStatus', $order->id)}}" method="POST">
                                                 @method('PATCH')
                                                 @csrf
-                                                <input type="checkbox" id="status" name="status" value="Delivered">
+                                                <input type="checkbox" id="status" name="status" value="Delivered" style="margin: auto">
                                                 <label for="status"> Delivered</label><br>
                                                 <button  type="submit"  class="btn btn-primary">Save</button>
                                             </form>

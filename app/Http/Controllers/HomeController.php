@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
@@ -23,6 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        switch (Auth::user()->role_id) {
+            case '1':
+                return redirect(route('admin.newOrders')); //admin
+                break;
+            case '2':
+                return redirect(route('postalworker')); //postal worker
+                break;
+            case '3':
+                return redirect(route('list_orders')); // seller
+                break;
+            case '4':
+            default:
+                return redirect(route('dashboard')); // buyer and default
+                break;
+        }
     }
 }

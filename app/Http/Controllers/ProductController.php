@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\Product;
 use App\ProductImage;
 use Illuminate\Http\Request;
@@ -18,10 +19,19 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
-        //$product_images = ProductImage::get();
-        $product_images = ProductImage::select('id', 'path', 'product_id')->groupBy('product_id')->paginate(6);
-        return view('welcome', compact('products', 'product_images'));
+        $products = Product::where('status', 1)->orderBy('created_at', 'desc')->paginate(6);
+        $categories = Categories::all();
+        $product_images = ProductImage::select('id', 'path', 'product_id')->groupBy('product_id')->orderBy('created_at', 'desc')->get();
+        return view('welcome', compact('products', 'product_images', 'categories'));
+    }
+
+    public function showCategories($id)
+    {
+        $category_name = Categories::find($id);
+        $products = Product::where('status', 1)->where('category', $category_name->name)->orderBy('created_at', 'desc')->paginate(6);
+        $categories = Categories::all();
+        $product_images = ProductImage::select('id', 'path', 'product_id')->groupBy('product_id')->orderBy('created_at', 'desc')->get();
+        return view('category_products', compact('products', 'product_images', 'categories', 'category_name'));
     }
 
     /**
@@ -31,7 +41,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('create_product');
+        $categories = Categories::all();
+        return view('create_product')->with('categories', $categories);
     }
 
     /**
@@ -45,11 +56,14 @@ class ProductController extends Controller
         $this->validate(
             $request,
             [
+                'category' => 'required',
                 'name' => 'required|max:255',
                 'images' => 'nullable|array|max:5',
                 'images.*' => 'image|max:2000',
                 'description' => 'nullable|max:255',
                 'price' => 'required|numeric|gte:0',
+                'tvsh' => 'required|numeric|gte:0|lte:100',
+                'quantity' => 'required|numeric|min:1',
                 'weight' => 'nullable|numeric|min:0',
                 'product_type' => 'required|max:255'
             ]
@@ -57,9 +71,12 @@ class ProductController extends Controller
 
         $product = new Product();
 
+        $product->category = $request->get('category');
         $product->name = $request->get('name');
         $product->description = $request->get('description');
         $product->price = $request->get('price');
+        $product->tvsh = $request->get('tvsh');
+        $product->quantity = $request->get('quantity');
         $product->weight = $request->get('weight');
         $product->product_type = $request->get('product_type');
         $product->seller_id = Auth::user()->id;
@@ -94,12 +111,86 @@ class ProductController extends Controller
         return redirect()->route('newProduct')->with('success', 'Product added successfully');
     }
 
+    public function allProducts()
+    {
+        return view('all_products')->with('products', Product::where('seller_id', Auth::user()->id)->orderBy('status', 'desc')->paginate(6));
+    }
+
+    public function editProduct(Product $product)
+    {
+        return view('update_product')->with('product', $product)
+            ->with('categories', Categories::all());
+    }
+
+    public function updateProduct(Product $product, Request $request)
+    {
+        // $data = request()->validate([
+        //     'category' => 'required',
+        //     'name' => 'required|max:255',
+        //     'description' => 'nullable|max:255',
+        //     'price' => 'required|numeric|gte:0',
+        //     'tvsh' => 'required|numeric|gte:0|lte:100',
+        //     'quantity' => 'required|numeric|min:1',
+        //     'weight' => 'nullable|numeric|min:0',
+        //     'product_type' => 'required|max:255'
+        // ]);
+
+        $this->validate(
+            $request,
+            [
+                'category' => 'required',
+                'name' => 'required|max:255',
+                'description' => 'nullable|max:255',
+                'price' => 'required|numeric|gte:0',
+                'tvsh' => 'required|numeric|gte:0|lte:100',
+                'quantity' => 'required|numeric|min:1',
+                'weight' => 'nullable|numeric|min:0',
+                'product_type' => 'required|max:255'
+            ]
+        );
+        // dd($request);
+        $product->category = $request['category'];
+        $product->name = $request['name'];
+        $product->description = $request['description'];
+        $product->price = $request['price'];
+        $product->tvsh = $request['tvsh'];
+        $product->quantity = $request['quantity'];
+        $product->weight = $request['weight'];
+        $product->product_type = $request['product_type'];
+
+        // dd($product->isDirty('category'));
+        $product->update();
+
+        return redirect(route('allProducts'))->with('success', 'Product updated successfully');
+    }
+
+    public function archiveProduct(Product $product)
+    {
+        $product->status = !$product->status;
+        $product->update();
+
+        return redirect(route('allProducts'))->with('success', 'Product archived successfully');
+    }
+
     public function productDetails($id)
     {
         $productDetails = Product::where('id', $id)->first();
         $product_images = ProductImage::get();
 
-        return view('product-details')->with(compact('productDetails', 'product_images'));
+        //get e products ans store in array
+        $products1 = Product::orderBy('id', 'desc')->take(4)->get();
+        $products = [];
+        foreach ($products1 as $key) {
+            array_push($products, $key);
+        }
+
+        //if array contains product, same as product that we're viewing in this page
+        //remove product from array
+        in_array($productDetails, $products) ? array_splice($products, array_search($productDetails, $products), 1) : array_splice($products, 3);
+
+        $all_product_images = ProductImage::select('id', 'path', 'product_id')->orderBy('id', 'desc')->take(4)->get();
+
+        return view('product-details')->with(compact('productDetails', 'product_images', 'products', 'all_product_images'));
     }
 
     public function trackOrder(Request $request)
@@ -123,46 +214,20 @@ class ProductController extends Controller
         $msg = $order == null ? 'Sorry , We couldn\'t find your order' : 'We found your order, ' . $order->receiver_name;
         $status = $order == null ? 'Please make sure you correctly entered tracking ID. Otherwise, try again in a while.' : 'You order status is: ' . $order->status;
 
-        return view('track.track')->with('msg', $msg)->with('status', $status);
+        $products = Product::orderBy('id', 'desc')->take(3)->get();
+
+        $all_product_images = ProductImage::select('id', 'path', 'product_id')->orderBy('id', 'desc')->take(4)->get();
+
+        return view('track.track')->with(compact('msg', 'status', 'products', 'all_product_images'));
     }
 
     public function trackView()
     {
-        return view('track.view');
-    }
+        $products = Product::orderBy('id', 'desc')->take(3)->get();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $all_product_images = ProductImage::select('id', 'path', 'product_id')->orderBy('id', 'desc')->take(4)->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return view('track.view')->with(compact('products', 'all_product_images'));
     }
 
     /**
@@ -175,5 +240,14 @@ class ProductController extends Controller
     {
         $id->delete();
         return redirect()->back()->with('success', 'Item with id ' . $id->id . ' removed from cart');
+    }
+
+    public function search(Request $request)
+    {
+        $results = Product::search($request['query'])->paginate(6);
+        $productImgs = ProductImage::select('id', 'path', 'product_id')->groupBy('product_id')->get();
+
+        return view('search_results')->with('products', $results)
+            ->with('product_images', $productImgs);
     }
 }

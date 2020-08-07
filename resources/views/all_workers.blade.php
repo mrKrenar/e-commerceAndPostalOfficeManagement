@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <div class="row justify-content-center table-responsive">
             <div class="col-md-16">
                 <div class="card">
                     <div class="card-header">All workers</div>
-                        <div class="card-body text-center">
+                    <div class="card-body text-center">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

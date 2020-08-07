@@ -59,7 +59,7 @@
                                                 <form  class="input-group" action="{{route('choosePostalWorker', $order->id)}}" method="POST">
                                                     @method('PATCH')
                                                     @csrf
-                                                    <select class="form-control" name="postman">
+                                                    <select class="form-control" style="margin-right: 5px; border-radius: 5px" name="postman">
                                                         <option value="" selected disabled hidden>Choose a postman here</option>
                                                         @foreach($users as $user)
                                                             @if($user->role_id==2)
@@ -67,7 +67,6 @@
                                                             @endif
                                                         @endforeach
                                                     </select>
-
                                                     <button  type="submit"  class="btn btn-primary">Save</button>
                                                 </form>
 

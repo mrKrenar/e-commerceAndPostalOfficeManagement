@@ -1,0 +1,84 @@
+@import 'variables';
+
+body{
+    background-image: url(/images/rg-background.png);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100%;
+    font-family: $body-font;
+}
+
+// .container {
+//     max-width: 1100px;
+//     padding: 0 30px;
+//     margin: 0 auto;
+//     // overflow: auto; 
+//     user-select: none;
+//     margin-bottom: 17px;
+// }
+
+.card {
+
+    .card-header{
+        text-align: center;
+        font-family: $styled-font;
+        font-size: 3rem;
+        color: $primary-color;
+        background-color: white;
+        border-bottom: none;
+
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+
+.card-body {
+    form{
+        padding-left:25%;
+           input{
+               width: 320px;
+               border: none;
+               font-size: 1.3rem;
+               border-bottom: 1.5px solid #999;
+               background: transparent;
+               outline: none;
+               color: $primary-color;
+               
+
+               &:focus {
+                   border-color: $primary-color;
+               }
+
+           }
+
+           i{
+            color: #999;
+            padding-top:16px;
+        }      
+        
+        i:hover {
+            color: $primary-color;
+        }
+
+        button {
+            padding: 1rem 3rem;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            
+            &:hover {
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+         }
+
+        .offset-md-4{
+            margin-top:10px;
+            margin-left: 13.3%;
+        }
+           
+    }
+}

@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500,700);* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway";
+}
+
+.my_card {
+  width: 350px;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+}
+
+.my_card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.my_card hr, hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.my_card .photo {
+  padding: 30px;
+  text-align: center;
+  float: left;
+}
+
+.my_card .photo img {
+  margin-bottom: 20px;
+  height: 200px;
+  max-height: 200px;
+  max-width: 270px;
+}
+
+.my_card .photo h1 {
+  color: #515151;
+  font-weight: 300;
+  padding-top: 15px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.my_card .photo h2 {
+  color: #515151;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.my_card .photo h4 {
+  margin: 0;
+  color: #727272;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.my_card .photo p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #727272;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.my_card a,
+.my_card input {
+  font-size: 17px;
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  background: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 8px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #2b2b2bc0;
+  width: 125px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.my_card a:hover,
+.my_card input:hover {
+  border: 1px solid #81967c;
+  background-color: rgba(54, 38, 139, 0.651);
+  font-weight: 700;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2), -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.my_card .button_parent {
+  display: flex;
+  justify-content: center;
+}
+
+/*aspect ratio usage:
+<div style="--aspect-ratio:815/419;">
+</div>
+
+<div style="--aspect-ratio:16/9;">
+</div>
+
+<div style="--aspect-ratio:1.4;">
+</div>
+
+*/
+
+
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+
+[style*="--aspect-ratio"] > img {
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+@supports (--custom: property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+

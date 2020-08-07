@@ -18,6 +18,7 @@ class CreateCartsTable extends Migration
             $table->foreignId('buyer_id')->constrained('users', 'id');
             $table->foreignId('product_id')->constrained('products', 'id');
             $table->integer('amount')->default(1);
+            $table->boolean('purchased')->default(false);
             $table->timestamps();
         });
     }

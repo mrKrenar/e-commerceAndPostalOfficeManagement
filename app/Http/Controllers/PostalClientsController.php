@@ -15,7 +15,7 @@ class PostalClientsController extends Controller
         //dd($registeredPostsByThisUser);
 
         if (Order::where('seller_id', $id)->get()->count() > 0)
-            return redirect('admin/clients')->with('error', 'Client has already registerred orders. Can\'t be deleted');
+            return redirect('admin/clients')->with('error', 'Client has already registered orders. Can\'t be deleted');
 
         $client = User::find($id);
         $client->delete();

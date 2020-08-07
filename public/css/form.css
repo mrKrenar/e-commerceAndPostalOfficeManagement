@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Pacifico&display=swap);.card-header {
+  background-color: white;
+  border: none;
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  color: #14213d;
+}
+
+.custom-container {
+  background-color: #fff;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.custom-container h4 {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  color: #14213d;
+}
+
+.custom-container h4 .badge {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  background-color: #14213d;
+}
+
+.custom-container h4:hover {
+  color: #fad02c;
+}
+
+.custom-container h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  color: #14213d;
+  margin: 20px;
+}
+
+.custom-container ul {
+  font-family: "Roboto", sans-serif;
+}
+
+.custom-container ul li {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.custom-container ul li .product-details {
+  flex-basis: 65%;
+}
+
+.custom-container ul li .product-details h6 {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  -webkit-margin-before: 2.33em;
+          margin-block-start: 2.33em;
+  -webkit-margin-after: 2.33em;
+          margin-block-end: 2.33em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+.custom-container ul li .product-details small {
+  font-size: 90%;
+  font-weight: 400;
+}
+
+.custom-container ul li .price {
+  color: #315196;
+}
+
+.custom-container .custom-form {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+.custom-container .custom-form .mb-3 {
+  padding: 10px 0px;
+}
+
+.custom-container .custom-form label {
+  font-family: "Roboto", sans-serif;
+  color: #14213d;
+}
+
+.custom-container .custom-form input,
+.custom-container .custom-form select,
+.custom-container .custom-form textarea {
+  border: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  outline: none;
+  color: #14213d;
+}
+
+.custom-container .custom-form input:focus,
+.custom-container .custom-form select:focus,
+.custom-container .custom-form textarea:focus {
+  border-bottom: 2px solid #14213d;
+  box-shadow: none;
+  outline: 0 none;
+  color: #14213d;
+}
+
+.custom-container .custom-form .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-container .custom-form .center button {
+  width: 60%;
+  margin-top: 30px;
+  background-color: #14213d;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.custom-container .custom-form .center button:hover {
+  background-color: #fad02c;
+  color: #14213d;
+}
+

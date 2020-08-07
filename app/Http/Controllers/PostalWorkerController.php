@@ -18,15 +18,17 @@ class PostalWorkerController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('poster_id', auth()->id())->where('status','Delivering')->paginate(5);
+        $orders = Order::where('poster_id', auth()->id())->where('status', 'Delivering')->paginate(5);
         return view('postal_worker_orders', compact('orders'));
     }
-    public function listDeliveredOrders(){
-        $orders = Order::where('poster_id', auth()->id())->where('status','Delivered')->paginate(5);
+    public function listDeliveredOrders()
+    {
+        $orders = Order::where('poster_id', auth()->id())->where('status', 'Delivered')->paginate(5);
         return view('postalworker_delivered', compact('orders'));
     }
 
-    public function changeOrderStatus(Request $request, $id){
+    public function changeOrderStatus(Request $request, $id)
+    {
         $order = Order::find($id);
         if (isset($request->status)) {
             $order->status = $request->get('status');
@@ -96,40 +98,6 @@ class PostalWorkerController extends Controller
         //     'state' => $request['state'],
         //     'city' => $request['city']
         // ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
