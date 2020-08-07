@@ -29,7 +29,7 @@ There's also an option to track order. This option allows buyers to track their 
 
 
 ## Search With [Algolia](https://www.algolia.com/users/sign_up)
-All products can be searched from search bar, using Algolia plugin (this option may not directly work, because Algolia offers only 14-days free trial. You may sign up for free trial in [Algolia](https://www.algolia.com/users/sign_up), and then make sure to configure env file properly)
+All products can be searched from search bar, using Algolia plugin (this option may not directly work, because Algolia offers only 14-days free trial. You may sign up for free trial in Algolia, and then make sure to configure env file properly)
 
 ![](/ApplicationScreenshots/4.png)
 
@@ -46,7 +46,7 @@ Admin can choose which employee to complete delivery
 ![](/ApplicationScreenshots/6.png)
 
 
-## Admin Can Manage Clients (Sellers) Or Search For Them (Local Search, Algolia Not Used In This Example)
+## Admin Can Manage Clients (Sellers) Or Search For Them (Local Search, [Algolia](https://www.algolia.com/users/sign_up) Not Used In This Example)
 Admin has different option with which he can manage client accounts like seeing all client orders, disabling their account (is client is logged in he will automatically be kicked out of his account, otherwise login will not be permitted) or completely deleting their account
 
 ![](/ApplicationScreenshots/7.png)
