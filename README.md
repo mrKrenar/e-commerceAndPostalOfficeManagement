@@ -22,8 +22,8 @@ Clicking View button at any Card, opens following page which shows different dat
 ![](/ApplicationScreenshots/2.png)
 
 
-## Track Order
-There's also an option to track order. This option allows buyers to track their order with phone numer and tracking id, which is sent to users with email
+## Track Order (E-Mail Tested With [Mailtrap](https://mailtrap.io/))
+There's also an option to track order. This option allows buyers to track their order with phone numer and tracking id, which is sent to users with email when user purchases products.
 
 ![](/ApplicationScreenshots/3.png)
 
@@ -34,7 +34,7 @@ All products can be searched from search bar, using Algolia plugin (this option 
 ![](/ApplicationScreenshots/4.png)
 
 
-## Multi role authentication
+## Multi Role Authentication
 Four (4) types of users can login: Admin, Seller, Buyer and Post Office Employee. Login form is shown in following screenshot, and similar form is register form also.
 
 ![](/ApplicationScreenshots/5.png)
@@ -85,4 +85,4 @@ Lastly each post employee can see orders that he/she needs to deliver, and can m
 ## More 
 There are other options in this app, however only a few most important have been featured. You can download and run this app to see all of those options.
 
-... and don't forget to import some products to try out all functionalities!
+... and don't forget to import some products, from seller account, to try out all functionalities!
