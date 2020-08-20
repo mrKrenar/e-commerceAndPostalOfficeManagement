@@ -16,7 +16,7 @@ Product Cards are nicely designed with SASS and also there is option to filter p
 ![](/ApplicationScreenshots/1.png)
 
 
-## Procduct Details
+## Product Details
 Clicking View button at any Card, opens following page which shows different data about that specific product.
 
 ![](/ApplicationScreenshots/2.png)
