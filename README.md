@@ -47,13 +47,13 @@ Admin can choose which employee to complete delivery
 
 
 ## Admin Can Manage Clients (Sellers) Or Search For Them (Local Search, [Algolia](https://www.algolia.com/users/sign_up) Not Used In This Example)
-Admin has different option with which he can manage client accounts like seeing all client orders, disabling their account (is client is logged in he will automatically be kicked out of his account, otherwise login will not be permitted) or completely deleting their account
+Admin has different option with which he can manage client accounts like seeing all client orders, disabling their account (if client is logged in he will automatically be kicked out of his account, otherwise login will not be permitted) or completely deleting their account
 
 ![](/ApplicationScreenshots/7.png)
 
 
 ## Seller Can See His Order
-All sellers can see orders made to them, and different info about each order, like if it is purchased, delivered etc.
+All sellers can see orders made to them and different informations about each order, ex. is item purchased, delivered etc.
 
 ![](/ApplicationScreenshots/8.png)
 
@@ -65,13 +65,13 @@ Seller can add products (and also edit/delete them). Following form shows how us
 
 
 ## Each Buyer Has His Cart
-Buyers can add products to cart, change amount or completely remove them from cart. Price for each product and total price are calculated with JS. 
+Buyers can add products to cart, change amount or completely remove them from cart. Price for each product and total price are dynamically calculated with JavaScript. 
 
 ![](/ApplicationScreenshots/10.png)
 
 
 ## Purchase Products With Stripe
-Integrated in application is Stripe, a service that allows transactions from web pages.
+Stripe plugin is also integrated.It allows transactions from web pages.
 
 ![](/ApplicationScreenshots/11.png)
 
